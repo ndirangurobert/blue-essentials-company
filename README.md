@@ -3,7 +3,7 @@
 A responsive store-management and customer-ordering application for Blue Essentials Company.
 
 ## Planned modules
-- Inventory and stock levels
+- Inventory and stock levels.
 - Supplier purchases and purchase dates
 - Sales and payment records
 - Customer profiles and customer orders
