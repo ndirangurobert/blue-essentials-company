@@ -1,4 +1,5 @@
 name = "blue-essentials-company"
+account_id = "b3483fdeacafdfdb5c4855d4e06a1ac4"
 main = "src/index.js"
 compatibility_date = "2026-11-14"
 
