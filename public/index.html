@@ -1,43 +1,85 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#102b5c">
-  <title>Blue Essentials Company</title>
-  <style>
-    :root{font-family:Inter,Arial,sans-serif;color:#15233d;background:#f3f6fb}
-    *{box-sizing:border-box}body{margin:0;min-height:100vh}
-    header{background:#102b5c;color:white;padding:22px max(6vw,22px);display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{font-size:20px;font-weight:800;letter-spacing:.2px}.tag{font-size:12px;color:#c8d8f6}
-    main{max-width:1000px;margin:64px auto;padding:0 22px}
-    .hero{background:linear-gradient(135deg,#102b5c,#1767b2);color:white;border-radius:22px;padding:clamp(28px,6vw,60px);box-shadow:0 18px 45px #102b5c22}
-    h1{font-size:clamp(30px,5vw,48px);line-height:1.08;margin:0 0 16px}
-    p{line-height:1.65}.hero p{max-width:620px;color:#e2ecff}
-    .pill{display:inline-block;background:#ffffff20;border:1px solid #ffffff50;border-radius:999px;padding:8px 13px;font-size:12px;margin-bottom:22px}
-    .modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:22px}
-    .module{background:white;border:1px solid #e3eaf4;border-radius:15px;padding:19px}
-    .module strong{display:block;margin-bottom:7px;color:#102b5c}.module span{font-size:13px;color:#65738a}
-    footer{text-align:center;color:#7b8798;font-size:12px;padding:28px}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#102b5c">
+<title>Blue Essentials | Store Management</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#17243b;background:#f4f7fc;--navy:#102b5c;--blue:#1767b2;--muted:#718096;--line:#e4eaf2;--white:#fff}
+*{box-sizing:border-box}body{margin:0;min-height:100vh}button{font:inherit}.shell{min-height:100vh;display:grid;grid-template-columns:250px 1fr}
+aside{background:#0d2148;color:#eaf1ff;padding:24px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;align-items:center;gap:11px;padding:0 9px}.logo{width:39px;height:39px;border-radius:12px;background:linear-gradient(135deg,#4da4f3,#1767b2);display:grid;place-items:center;font-weight:900;color:white}.brand strong{display:block;font-size:14px;letter-spacing:.5px}.brand small{color:#9db5da;font-size:11px}.nav-label{font-size:10px;letter-spacing:1.3px;color:#8da5cc;padding:0 12px;margin:4px 0 8px}.nav{display:grid;gap:5px}.nav a{color:#c9d7ee;text-decoration:none;padding:11px 12px;border-radius:10px;font-size:13px;display:flex;gap:12px;align-items:center}.nav a.active,.nav a:hover{background:#1b3b70;color:#fff}.nav .ico{width:19px;text-align:center;font-size:16px}.side-note{margin-top:auto;border:1px solid #294674;border-radius:13px;padding:14px;color:#b9c9e2;font-size:11px;line-height:1.6}.side-note b{color:#fff;display:block;margin-bottom:4px}
+main{min-width:0}.topbar{height:72px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,42px);gap:16px}.crumb{font-size:12px;color:var(--muted)}.crumb b{color:#1b2d4d}.top-right{display:flex;align-items:center;gap:13px}.status{font-size:11px;color:#9a6414;background:#fff6df;border:1px solid #f2e2b9;padding:7px 10px;border-radius:999px}.avatar{height:34px;width:34px;border-radius:50%;background:#e4efff;color:#174d8c;display:grid;place-items:center;font-size:12px;font-weight:800}
+.content{padding:30px clamp(18px,4vw,42px);max-width:1500px;margin:auto}.welcome{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:25px}.welcome h1{font-size:26px;letter-spacing:-.6px;margin:0 0 7px;color:#14294d}.welcome p{margin:0;color:var(--muted);font-size:13px}.date{color:#718096;font-size:12px;padding-top:8px}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:26px 0 13px}.section-head h2{font-size:15px;margin:0;color:#1b2d4d}.section-head span{font-size:11px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.stat,.panel,.module{background:white;border:1px solid var(--line);border-radius:14px;box-shadow:0 3px 12px #102b5c06}.stat{padding:17px}.stat-top{display:flex;justify-content:space-between;align-items:center;color:#6d7c91;font-size:11px}.stat-icon{height:31px;width:31px;border-radius:9px;background:#edf4ff;display:grid;place-items:center;font-size:15px}.stat strong{display:block;font-size:25px;margin:12px 0 4px;color:#152c50}.stat small{color:#8491a3;font-size:10px}
+.quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.quick button{background:white;border:1px solid var(--line);border-radius:12px;padding:13px;text-align:left;color:#1c3459;cursor:pointer}.quick button:hover{border-color:#8db8eb;background:#fafdff}.quick b{display:block;font-size:12px;margin-bottom:4px}.quick small{font-size:10px;color:var(--muted)}
+.modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.module{padding:17px;display:flex;gap:13px;align-items:flex-start}.module-icon{flex:0 0 38px;height:38px;border-radius:11px;background:#edf4ff;display:grid;place-items:center;font-size:18px}.module h3{font-size:13px;margin:1px 0 5px;color:#1a3155}.module p{font-size:11px;line-height:1.5;color:#77869a;margin:0}
+.lower{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}.panel{padding:17px}.panel h3{font-size:13px;margin:0 0 13px}.empty{padding:25px 10px;text-align:center;color:#8390a3;font-size:11px;border:1px dashed #dbe3ee;border-radius:10px}.empty b{display:block;color:#52647e;font-size:12px;margin-bottom:5px}
+footer{text-align:center;padding:25px;color:#95a0af;font-size:10px}
+@media(max-width:1050px){.stats{grid-template-columns:repeat(2,1fr)}.modules{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.shell{grid-template-columns:1fr}aside{padding:13px 14px;gap:13px}.brand{padding:0 4px}.nav-label,.side-note{display:none}.nav{display:flex;overflow:auto;padding-bottom:3px}.nav a{white-space:nowrap;padding:9px 11px;font-size:11px}.topbar{height:57px}.content{padding-top:22px}.welcome{display:block}.date{padding-top:10px}.quick{grid-template-columns:repeat(2,1fr)}.modules{grid-template-columns:1fr}.lower{grid-template-columns:1fr}}
+@media(max-width:390px){.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:21px}}
+</style>
 </head>
 <body>
-  <header><div><div class="brand">BLUE ESSENTIALS</div><div class="tag">Company Store Management</div></div><div class="tag">Business workspace</div></header>
-  <main>
-    <section class="hero">
-      <span class="pill">STORE MANAGEMENT & CUSTOMER ORDERS</span>
-      <h1>Manage your store.<br>Keep everything connected.</h1>
-      <p>A central workspace for products, stock, purchases, sales, customers and customer orders at Blue Essentials Company.</p>
-    </section>
-    <section class="modules" aria-label="System modules">
-      <div class="module"><strong>Inventory</strong><span>Products, categories and stock levels</span></div>
-      <div class="module"><strong>Purchases</strong><span>Supplier deliveries and purchase history</span></div>
-      <div class="module"><strong>Sales</strong><span>Sales records and payment status</span></div>
-      <div class="module"><strong>Customers</strong><span>Customer details and order history</span></div>
-      <div class="module"><strong>Orders</strong><span>Customer orders and order progress</span></div>
-      <div class="module"><strong>Employees</strong><span>Staff accounts and access permissions</span></div>
-    </section>
-  </main>
+<div class="shell">
+<aside>
+  <div class="brand"><div class="logo">BE</div><div><strong>BLUE ESSENTIALS</strong><small>Store Management</small></div></div>
+  <div><div class="nav-label">WORKSPACE</div><nav class="nav">
+    <a class="active" href="#overview"><span class="ico">⌂</span>Overview</a>
+    <a href="#inventory"><span class="ico">▦</span>Inventory</a>
+    <a href="#purchases"><span class="ico">⇩</span>Purchases</a>
+    <a href="#sales"><span class="ico">↗</span>Sales & Payments</a>
+    <a href="#customers"><span class="ico">♙</span>Customers</a>
+    <a href="#orders"><span class="ico">▤</span>Orders</a>
+    <a href="#suppliers"><span class="ico">▣</span>Suppliers</a>
+    <a href="#employees"><span class="ico">♧</span>Employees</a>
+  </nav></div>
+  <div><div class="nav-label">MANAGEMENT</div><nav class="nav">
+    <a href="#expenses"><span class="ico">K</span>Expenses</a>
+    <a href="#reports"><span class="ico">▥</span>Reports</a>
+    <a href="#settings"><span class="ico">⚙</span>Settings</a>
+  </nav></div>
+  <div class="side-note"><b>Business workspace</b>Manage stock, sales, suppliers and customer orders from one place. Access and records will be controlled by staff roles.</div>
+</aside>
+<main>
+  <div class="topbar"><div class="crumb">Blue Essentials <span> / </span> <b>Overview</b></div><div class="top-right"><span class="status">Preview · Database setup pending</span><div class="avatar">BE</div></div></div>
+  <div class="content" id="overview">
+    <div class="welcome"><div><h1>Store overview</h1><p>Welcome to your Blue Essentials business workspace.</p></div><div class="date">Store Management System</div></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-top"><span>Total products</span><span class="stat-icon">▦</span></div><strong>—</strong><small>Inventory records will appear here</small></div>
+      <div class="stat"><div class="stat-top"><span>Orders to process</span><span class="stat-icon">▤</span></div><strong>—</strong><small>Customer orders awaiting action</small></div>
+      <div class="stat"><div class="stat-top"><span>Sales recorded</span><span class="stat-icon">↗</span></div><strong>—</strong><small>Sales totals will appear here</small></div>
+      <div class="stat"><div class="stat-top"><span>Low-stock items</span><span class="stat-icon">⚑</span></div><strong>—</strong><small>Items at or below reorder level</small></div>
+    </div>
+    <div class="section-head"><h2>Quick actions</h2><span>Common store tasks</span></div>
+    <div class="quick">
+      <button type="button"><b>＋ Add product</b><small>Create an inventory item</small></button>
+      <button type="button"><b>＋ Record purchase</b><small>Enter a supplier delivery</small></button>
+      <button type="button"><b>＋ Record sale</b><small>Capture a customer sale</small></button>
+      <button type="button"><b>＋ Create order</b><small>Register a customer request</small></button>
+    </div>
+    <div class="section-head"><h2>Business modules</h2><span>Core tools for daily operations</span></div>
+    <div class="modules">
+      <article class="module" id="inventory"><div class="module-icon">▦</div><div><h3>Inventory & Categories</h3><p>Products, item codes, categories, selling prices, stock quantities and reorder alerts.</p></div></article>
+      <article class="module" id="purchases"><div class="module-icon">⇩</div><div><h3>Purchases & Deliveries</h3><p>Supplier deliveries, invoice references, purchase dates, quantities and purchase history.</p></div></article>
+      <article class="module" id="sales"><div class="module-icon">↗</div><div><h3>Sales & Payments</h3><p>Sales records, receipts, payment methods, outstanding balances and payment status.</p></div></article>
+      <article class="module" id="customers"><div class="module-icon">♙</div><div><h3>Customers</h3><p>Customer contacts, saved details, order history and purchase records.</p></div></article>
+      <article class="module" id="orders"><div class="module-icon">▤</div><div><h3>Customer Orders</h3><p>Online order requests with progress tracking: pending, confirmed, processing and completed.</p></div></article>
+      <article class="module" id="suppliers"><div class="module-icon">▣</div><div><h3>Suppliers</h3><p>Supplier directory, contacts, delivery history and supplier purchase records.</p></div></article>
+      <article class="module" id="employees"><div class="module-icon">♧</div><div><h3>Employees & Roles</h3><p>Staff accounts with role-based permissions for administrators and employees.</p></div></article>
+      <article class="module" id="expenses"><div class="module-icon">K</div><div><h3>Expenses</h3><p>Record operating costs such as transport, utilities and other store expenses.</p></div></article>
+      <article class="module" id="reports"><div class="module-icon">▥</div><div><h3>Reports & Summaries</h3><p>Sales summaries, stock valuation, purchase history, expenses and date-based reports.</p></div></article>
+      <article class="module"><div class="module-icon">↺</div><div><h3>Returns & Exchanges</h3><p>Track returned items, reasons, quantities and replacement or refund decisions.</p></div></article>
+      <article class="module"><div class="module-icon">⚑</div><div><h3>Stock Movement Log</h3><p>Keep a record of stock received, sold, adjusted or returned for accountability.</p></div></article>
+      <article class="module" id="settings"><div class="module-icon">⚙</div><div><h3>Settings & Activity</h3><p>Business details, staff activity history and system preferences.</p></div></article>
+    </div>
+    <div class="section-head"><h2>Store activity</h2><span>Recent updates</span></div>
+    <div class="lower">
+      <section class="panel"><h3>Recent transactions</h3><div class="empty"><b>No transactions displayed yet</b>Sales and purchases will appear here after the database and transaction features are connected.</div></section>
+      <section class="panel"><h3>Stock alerts</h3><div class="empty"><b>No stock data yet</b>Low-stock alerts will appear when products and reorder levels are recorded.</div></section>
+    </div>
+  </div>
   <footer>Blue Essentials Company · Store Management System</footer>
-</body>
-</html>
+</main>
+</div>
+</body></html>
