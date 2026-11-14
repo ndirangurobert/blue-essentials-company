@@ -9,5 +9,5 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "blue-essentials-db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "cb8df826-a5dd-488a-8c55-04a4a9faf99c"
 migrations_dir = "database/migrations"
