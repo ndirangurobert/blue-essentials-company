@@ -123,7 +123,8 @@ export default {
       return json({
         app: "Blue Essentials Company",
         status: "online",
-        database: env.DB ? "configured" : "not-configured"
+        database: env.DB ? "configured" : "not-configured",
+        release: "github-auth-routes-2026-11-14"
       });
     }
 
@@ -168,9 +169,14 @@ export default {
       } catch {
         return json({ error: "Could not create administrator. Check whether the email is already registered." }, 409);
       }
-      await env.DB.prepare(
-        "INSERT INTO audit_logs (user_id, action, entity_type, details) VALUES (last_insert_rowid(), 'admin_setup', 'users', 'Initial administrator account created')"
-      ).run();
+      const createdAdmin = await env.DB.prepare(
+        "SELECT id FROM users WHERE email = ?"
+      ).bind(email).first();
+      if (createdAdmin?.id) {
+        await env.DB.prepare(
+          "INSERT INTO audit_logs (user_id, action, entity_type, entity_id, details) VALUES (?, 'admin_setup', 'users', ?, 'Initial administrator account created')"
+        ).bind(createdAdmin.id, createdAdmin.id).run();
+      }
       return json({ success: true, message: "Administrator account created. You can now sign in." }, 201);
     }
 
